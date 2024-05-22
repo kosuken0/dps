@@ -1,1 +1,64 @@
-<html><head></head><body style="overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;"><div>function calculate() {</div><div>&nbsp; &nbsp; const r1 = parseFloat(document.getElementById('r1').value);</div><div>&nbsp; &nbsp; const r2 = parseFloat(document.getElementById('r2').value);</div><div>&nbsp; &nbsp; const d = parseFloat(document.getElementById('d').value);</div><div>&nbsp; &nbsp; const ph = parseFloat(document.getElementById('ph').value);</div><div>&nbsp; &nbsp; const pd = parseFloat(document.getElementById('pd').value);</div><div>&nbsp; &nbsp; const pa = parseFloat(document.getElementById('pa').value);</div><div>&nbsp; &nbsp; const pr = parseFloat(document.getElementById('pr').value);</div><div>&nbsp; &nbsp; const rs = parseFloat(document.getElementById('rs').value);</div><div>&nbsp; &nbsp; const md = parseFloat(document.getElementById('md').value);</div><div>&nbsp; &nbsp; const ma = parseFloat(document.getElementById('ma').value);</div><div><br></div><div>&nbsp; &nbsp; let output = "";</div><div><br></div><div>&nbsp; &nbsp; try {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; if (md - pa &lt;= 0) {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; throw new Error("Division by zero encountered in h_n calculation.");</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; const h_n = Math.ceil(ph / (md - pa));</div><div>&nbsp; &nbsp; &nbsp; &nbsp; console.log("hit num:", h_n);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; output += `hit num: ${h_n}\n`;</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; const cos_theta = (Math.pow(r1, 2) + Math.pow(d, 2) - Math.pow(r2, 2)) / (2 * r1 * d);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; if (cos_theta &lt; -1 || cos_theta &gt; 1) {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; throw new Error("cos_theta is out of range. Check the input values.");</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; const theta = 2 * Math.acos(cos_theta);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; console.log("theta:", theta);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; output += `theta: ${theta}\n`;</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; const f_1 = h_n * (pd - ma);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; console.log("total dmg:", f_1);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; output += `total dmg: ${f_1}\n`;</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; const term1 = h_n * 0.04 / (theta / rs);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; const floor_term = Math.floor(term1);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; console.log("times it overrotates:", floor_term);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; output += `times it overrotates: ${floor_term}\n`;</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; const denominator = (floor_term * ((2 * Math.PI - theta) / rs)) + (h_n * 0.04) + pr;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; console.log("time to break:", denominator);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; output += `time to break: ${denominator}\n`;</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; if (denominator &lt;= 0) {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; throw new Error("Division by zero or negative denominator encountered in delta calculation.");</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; const delta = f_1 / denominator;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; console.log("Single petal DPS (delta):", delta);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; output += `Single petal DPS (delta): ${delta}\n`;</div><div><br></div><div>&nbsp; &nbsp; } catch (e) {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; console.error(e.message);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; output += `Error: ${e.message}\n`;</div><div>&nbsp; &nbsp; }</div><div><br></div><div>&nbsp; &nbsp; const outputContainer = document.createElement('div');</div><div>&nbsp; &nbsp; outputContainer.className = 'output-box';</div><div>&nbsp; &nbsp; outputContainer.innerText = output;</div><div>&nbsp; &nbsp; document.getElementById("output").innerHTML = ''; // Clear previous output</div><div>&nbsp; &nbsp; document.getElementById("output").appendChild(outputContainer);</div><div>}</div><div><br></div><div>document.getElementById("calculateButton").addEventListener("click", calculate);</div><div><br></div></body></html>
+function calculate() {
+    const r1 = parseFloat(document.getElementById('r1').value);
+    const r2 = parseFloat(document.getElementById('r2').value);
+    const d = parseFloat(document.getElementById('d').value);
+    const ph = parseFloat(document.getElementById('ph').value);
+    const pd = parseFloat(document.getElementById('pd').value);
+    const pa = parseFloat(document.getElementById('pa').value);
+    const pr = parseFloat(document.getElementById('pr').value);
+    const rs = parseFloat(document.getElementById('rs').value);
+    const md = parseFloat(document.getElementById('md').value);
+    const ma = parseFloat(document.getElementById('ma').value);
+
+    let output = "";
+
+    try {
+        if (md - pa <= 0) {
+            throw new Error("Division by zero encountered in h_n calculation.");
+        }
+        const h_n = Math.ceil(ph / (md - pa));
+        console.log("hit num:", h_n);
+        output += `hit num: ${h_n}\n`;
+
+        const cos_theta = (Math.pow(r1, 2) + Math.pow(d, 2) - Math.pow(r2, 2)) / (2 * r1 * d);
+        if (cos_theta < -1 || cos_theta > 1) {
+            throw new Error("cos_theta is out of range. Check the input values.");
+        }
+        const theta = 2 * Math.acos(cos_theta);
+        console.log("theta:", theta);
+        output += `theta: ${theta}\n`;
+
+        const f_1 = h_n * (pd - ma);
+        console.log("total dmg:", f_1);
+        output += `total dmg: ${f_1}\n`;
+
+        const term1 = h_n * 0.04 / (theta / rs);
+        const floor_term = Math.floor(term1);
+        console.log("times it overrotates:", floor_term);
+        output += `times it overrotates: ${floor_term}\n`;
+
+        const denominator = (floor_term * ((2 * Math.PI - theta) / rs)) + (h_n * 0.04) + pr;
+        console.log("time to break:", denominator);
+        output += `time to break: ${denominator}\n`;
+
+        if (denominator <= 0) {
+            throw new Error("Division by zero or negative denominator encountered in delta calculation.");
+        }
+
+        const delta = f_1 / denominator;
+        console.log("Single petal DPS (delta):", delta);
+        output += `Single petal DPS (delta): ${delta}\n`;
+
+    } catch (e) {
+        console.error(e.message);
+        output += `Error: ${e.message}\n`;
+    }
+
+    const outputContainer = document.createElement('div');
+    outputContainer.className = 'output-box';
+    outputContainer.innerText = output;
+    document.getElementById("output").innerHTML = ''; // Clear previous output
+    document.getElementById("output").appendChild(outputContainer);
+}
+
+document.getElementById("calculateButton").addEventListener("click", calculate);
