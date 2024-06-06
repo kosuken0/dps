@@ -2,57 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petal DPS Calculator</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Petal DPS Calculator</h1>
         <div class="input-container">
             <label for="r1">Petal Extension Radius (r1):</label>
-            <input type="number" id="r1" value="140">
+            <input type="number" id="r1" required>
         </div>
         <div class="input-container">
             <label for="r2">Mob Radius (r2):</label>
-            <input type="number" id="r2" value="360">
+            <input type="number" id="r2" required>
         </div>
         <div class="input-container">
             <label for="d">Distance Between Centers (d):</label>
-            <input type="number" id="d" value="400">
+            <input type="number" id="d" required>
         </div>
         <div class="input-container">
             <label for="ph">Petal Health (ph):</label>
-            <input type="number" id="ph" value="21870">
+            <input type="number" id="ph" required>
         </div>
         <div class="input-container">
             <label for="pd">Petal Damage (pd):</label>
-            <input type="number" id="pd" value="32805">
+            <input type="number" id="pd" required>
         </div>
         <div class="input-container">
             <label for="pa">Petal Armour (pa):</label>
-            <input type="number" id="pa" value="6561">
+            <input type="number" id="pa" required>
         </div>
         <div class="input-container">
             <label for="pr">Petal Reload (pr):</label>
-            <input type="number" id="pr" value="1.5">
+            <input type="number" step="0.01" id="pr" required>
         </div>
         <div class="input-container">
             <label for="rs">Petal Rotation Speed (rs):</label>
-            <input type="number" id="rs" value="4">
+            <input type="number" id="rs" required>
         </div>
         <div class="input-container">
             <label for="md">Mob Damage (md):</label>
-            <input type="number" id="md" value="7290">
+            <input type="number" id="md" required>
         </div>
         <div class="input-container">
             <label for="ma">Mob Armour (ma):</label>
-            <input type="number" id="ma" value="583">
+            <input type="number" id="ma" required>
         </div>
         <div class="button-container">
             <button id="calculateButton">Calculate</button>
         </div>
-        <div class="result-container" id="output"></div>
+        <div class="result-container">
+            <p id="result"></p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
