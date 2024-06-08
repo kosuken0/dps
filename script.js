@@ -1,15 +1,15 @@
 document.getElementById("calculateButton").addEventListener("click", function () {
-    const r1 = parseFloat(document.getElementById("r1").value) || 0;
-    const r2 = parseFloat(document.getElementById("r2").value) || 0;
-    const d = parseFloat(document.getElementById("d").value) || 0;
-    const ph = parseFloat(document.getElementById("ph").value) || 0;
-    const pd = parseFloat(document.getElementById("pd").value) || 0;
-    const pa = parseFloat(document.getElementById("pa").value) || 0;
-    const pr = parseFloat(document.getElementById("pr").value) || 0;
-    const rs = parseFloat(document.getElementById("rs").value) || 0;
-    const md = parseFloat(document.getElementById("md").value) || 0;
-    const ma = parseFloat(document.getElementById("ma").value) || 0;
-    const am = parseFloat(document.getElementById("am").value) || 0;
+    const r1 = parseFloat(document.getElementById("r1").value) || 350;
+    const r2 = parseFloat(document.getElementById("r2").value) || 360;
+    const d = parseFloat(document.getElementById("d").value) || 380;
+    const ph = parseFloat(document.getElementById("ph").value) || 21870;
+    const pd = parseFloat(document.getElementById("pd").value) || 32805;
+    const pa = parseFloat(document.getElementById("pa").value) || 6561;
+    const pr = parseFloat(document.getElementById("pr").value) || 1.2;
+    const rs = parseFloat(document.getElementById("rs").value) || 4.5;
+    const md = parseFloat(document.getElementById("md").value) || 21870;
+    const ma = parseFloat(document.getElementById("ma").value) || 581;
+    const am = parseFloat(document.getElementById("am").value) || 1;
     const bd = parseFloat(document.getElementById("bd").value) || 0;
     const po = parseFloat(document.getElementById("po").value) || 0;
     const tp = parseFloat(document.getElementById("tp").value) || 0;
