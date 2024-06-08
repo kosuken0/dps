@@ -1,75 +1,80 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #2bffa3; /* Background color */
-  margin: 0;
-  padding: 0;
-  text-align: center; /* Center align text */
-}
+document.getElementById("calculateButton").addEventListener("click", function () {
+    const r1 = parseFloat(document.getElementById("r1").value) || 0;
+    const r2 = parseFloat(document.getElementById("r2").value) || 0;
+    const d = parseFloat(document.getElementById("d").value) || 0;
+    const ph = parseFloat(document.getElementById("ph").value) || 0;
+    const pd = parseFloat(document.getElementById("pd").value) || 0;
+    const pa = parseFloat(document.getElementById("pa").value) || 0;
+    const pr = parseFloat(document.getElementById("pr").value) || 0;
+    const rs = parseFloat(document.getElementById("rs").value) || 0;
+    const md = parseFloat(document.getElementById("md").value) || 0;
+    const ma = parseFloat(document.getElementById("ma").value) || 0;
+    const am = parseFloat(document.getElementById("am").value) || 0;
+    const bd = parseFloat(document.getElementById("bd").value) || 0;
+    const po = parseFloat(document.getElementById("po").value) || 0;
+    const tp = parseFloat(document.getElementById("tp").value) || 0;
+    const ld = parseFloat(document.getElementById("ld").value) || 0;
+    const caseType = document.getElementById("case").value;
 
-/* Style for the container box */
-.container {
-  background-color: white; /* White background for the container */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-  padding: 20px;
-  margin: 50px auto;
-  width: 80%;
-  max-width: 600px;
-}
+    try {
+        const theta = 2 * Math.acos(((r1 ** 2 + d ** 2 - r2 ** 2) / (2 * r1 * d))) * (Math.PI / 180);
+        const eta = Math.ceil(ph / (md - pa));
 
-h1 {
-  font-size: 24px;
-  color: #007bff; /* Blue text color */
-  margin-top: 0;
-}
+        let delta_norm, delta_poison, delta_lightn;
 
-.input-container {
-  margin-bottom: 15px;
-}
+        switch (caseType) {
+            case 'normal':
+                {
+                    const numr = (pd - ma + bd) * am * eta;
+                    const den1 = (eta * 0.04) / (theta / rs);
+                    const den2 = Math.floor(den1 * ((2 * Math.PI - theta) / rs));
+                    const den3 = den2 + (eta * 0.04);
+                    const den4 = den3 + pr;
+                    const nden = 2 * Math.PI - (rs / (1 / pr));
+                    const denom = den4 + (nden / rs);
+                    delta_norm = numr / denom;
+                    break;
+                }
+            case 'poison':
+                {
+                    const numr = (pd - ma + bd) * am * eta;
+                    const den1 = (eta * 0.04) / (theta / rs);
+                    const den2 = Math.floor(den1 * ((2 * Math.PI - theta) / rs));
+                    const den3 = den2 + (eta * 0.04);
+                    const den4 = den3 + pr;
+                    const nden = 2 * Math.PI - (rs / (1 / pr));
+                    const denom = den4 + (nden / rs);
+                    delta_norm = numr / denom;
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+                    const pden = (po / tp) + Math.max(0, ((2 * Math.PI - theta) / rs) - rs);
+                    delta_poison = tp / pden;
+                    break;
+                }
+            case 'lightning':
+                {
+                    const le1 = (2 * Math.PI - (rs / (1 / pr))) / rs;
+                    const le2 = pr + 0.04 + le1;
+                    delta_lightn = (ld * am) / le2;
+                    break;
+                }
+            default:
+                throw new Error("Invalid case selected.");
+        }
 
-input, select {
-  width: calc(100% - 22px);
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.button-container {
-  text-align: center;
-}
-
-button {
-  background-color: #007bff; /* Blue button color */
-  color: white; /* White text color */
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
-
-.result-container {
-  background-color: #ff2b75; /* Result box background color */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-  padding: 20px;
-  margin-top: 20px;
-}
-
-p {
-  font-size: 16px;
-  color: white; /* Result text color */
-  font-weight: bold;
-}
+        const resultElement = document.getElementById("result");
+        switch (caseType) {
+            case 'normal':
+                resultElement.textContent = `Single petal DPS (Normal): ${delta_norm.toFixed(2)}`;
+                break;
+            case 'poison':
+                resultElement.textContent = `Single petal DPS (Normal + Poison): ${(delta_norm + delta_poison).toFixed(2)}`;
+                break;
+            case 'lightning':
+                resultElement.textContent = `Single petal DPS (Lightning): ${delta_lightn.toFixed(2)}`;
+                break;
+        }
+    } catch (e) {
+        const resultElement = document.getElementById("result");
+        resultElement.textContent = `Error: ${e.message}`;
+    }
+});
