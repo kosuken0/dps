@@ -19,6 +19,9 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     try {
         const theta = 2 * Math.acos((((r1 ** 2 + d ** 2 - r2 ** 2) / (2 * r1 * d))) * (Math.PI / 180));
         const eta = Math.ceil(ph / (md - pa));
+        const tau = Math.max(0, ((2 * Math.PI - (rs / (1 / pr))) % (2 * Math.PI)) - theta);
+        console.log("tau:", tau);
+
 
         console.log("theta:", theta);
         console.log("eta:", eta);
@@ -38,9 +41,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                     console.log("den3:", den3);
                     const den4 = den3 + pr;
                     console.log("den4:", den4);
-                    const nden = 2 * Math.PI - (rs / (1 / pr));
-                    console.log("nden:", nden);
-                    const denom = den4 + (nden / rs);
+                    const denom = den4 + (tau / rs);
                     console.log("denom:", denom);
                     delta_norm = numr / denom;
                     console.log("delta_norm:", delta_norm);
@@ -59,9 +60,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                     console.log("den3:", den3);
                     const den4 = den3 + pr;
                     console.log("den4:", den4);
-                    const nden = 2 * Math.PI - (rs / (1 / pr));
-                    console.log("nden:", nden);
-                    const denom = den4 + (nden / rs);
+                    const denom = den4 + (tau / rs);
                     console.log("denom:", denom);
                     delta_norm = numr / denom;
                     console.log("delta_norm:", delta_norm);
