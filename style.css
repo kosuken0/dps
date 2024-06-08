@@ -8,8 +8,9 @@ body {
 
 /* Style for the container box */
 .container {
-  background-color: white; /* White background for the container */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #a29e9f; /* Inside color */
+  border: 20px solid #838181; /* Border color and width */
+  border-radius: 20px; /* Rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
   padding: 20px;
   margin: 50px auto;
@@ -46,23 +47,26 @@ input, select {
 }
 
 button {
-  background-color: #007bff; /* Blue button color */
-  color: white; /* White text color */
-  border: none;
+  background-color: #2bffa3; /* Button center color */
+  color: black; /* Button text color */
+  border: 10px solid #26bf7c; /* Button border color and width */
   padding: 10px 20px;
   font-size: 14px;
   cursor: pointer;
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 10px; /* Rounded corners */
   transition: background-color 0.3s;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; /* White text outline */
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #26bf7c; /* Change to a darker shade on hover */
 }
 
 .result-container {
   background-color: #ff2b75; /* Result box background color */
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 20px; /* Rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
   padding: 20px;
   margin-top: 20px;
@@ -73,3 +77,6 @@ p {
   color: white; /* Result text color */
   font-weight: bold;
 }
+
+/* Additional font import for Ubuntu Bold */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
