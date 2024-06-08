@@ -17,7 +17,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     const caseType = document.getElementById("case").value;
 
     try {
-        const theta = 2 * Math.acos(((r1 ** 2 + d ** 2 - r2 ** 2) / (2 * r1 * d))) * (Math.PI / 180);
+        const theta = 2 * Math.acos((((r1 ** 2 + d ** 2 - r2 ** 2) / (2 * r1 * d))) * (Math.PI / 180));
         const eta = Math.ceil(ph / (md - pa));
 
         console.log("theta:", theta);
