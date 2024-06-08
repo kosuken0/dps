@@ -11,43 +11,71 @@
         <h1>Petal DPS Calculator</h1>
         <div class="input-container">
             <label for="r1">Petal Extension Radius (r1):</label>
-            <input type="number" id="r1" required>
+            <input type="number" id="r1" value="0">
         </div>
         <div class="input-container">
             <label for="r2">Mob Radius (r2):</label>
-            <input type="number" id="r2" required>
+            <input type="number" id="r2" value="0">
         </div>
         <div class="input-container">
             <label for="d">Distance Between Centers (d):</label>
-            <input type="number" id="d" required>
+            <input type="number" id="d" value="0">
         </div>
         <div class="input-container">
             <label for="ph">Petal Health (ph):</label>
-            <input type="number" id="ph" required>
+            <input type="number" id="ph" value="0">
         </div>
         <div class="input-container">
             <label for="pd">Petal Damage (pd):</label>
-            <input type="number" id="pd" required>
+            <input type="number" id="pd" value="0">
         </div>
         <div class="input-container">
             <label for="pa">Petal Armour (pa):</label>
-            <input type="number" id="pa" required>
+            <input type="number" id="pa" value="0">
         </div>
         <div class="input-container">
             <label for="pr">Petal Reload (pr):</label>
-            <input type="number" step="0.01" id="pr" required>
+            <input type="number" step="0.01" id="pr" value="0">
         </div>
         <div class="input-container">
             <label for="rs">Petal Rotation Speed (rs):</label>
-            <input type="number" id="rs" required>
+            <input type="number" id="rs" value="0">
         </div>
         <div class="input-container">
             <label for="md">Mob Damage (md):</label>
-            <input type="number" id="md" required>
+            <input type="number" id="md" value="0">
         </div>
         <div class="input-container">
             <label for="ma">Mob Armour (ma):</label>
-            <input type="number" id="ma" required>
+            <input type="number" id="ma" value="0">
+        </div>
+        <div class="input-container">
+            <label for="am">Amount of Parts a Petal Has (am):</label>
+            <input type="number" id="am" value="0">
+        </div>
+        <div class="input-container">
+            <label for="bd">Bur Debuff (bd):</label>
+            <input type="number" id="bd" value="0">
+        </div>
+        <div class="input-container">
+            <label for="po">Poison Indicated DPS (po):</label>
+            <input type="number" id="po" value="0">
+        </div>
+        <div class="input-container">
+            <label for="tp">Total Poison Damage (tp):</label>
+            <input type="number" id="tp" value="0">
+        </div>
+        <div class="input-container">
+            <label for="ld">Lightning Damage (ld):</label>
+            <input type="number" id="ld" value="0">
+        </div>
+        <div class="input-container">
+            <label for="case">Case:</label>
+            <select id="case">
+                <option value="normal">Normal</option>
+                <option value="poison">Poison</option>
+                <option value="lightning">Lightning</option>
+            </select>
         </div>
         <div class="button-container">
             <button id="calculateButton">Calculate</button>
