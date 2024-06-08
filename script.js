@@ -1,49 +1,75 @@
-document.getElementById("calculateButton").addEventListener("click", function () {
-    const r1 = parseFloat(document.getElementById("r1").value);
-    const r2 = parseFloat(document.getElementById("r2").value);
-    const d = parseFloat(document.getElementById("d").value);
-    const ph = parseFloat(document.getElementById("ph").value);
-    const pd = parseFloat(document.getElementById("pd").value);
-    const pa = parseFloat(document.getElementById("pa").value);
-    const pr = parseFloat(document.getElementById("pr").value);
-    const rs = parseFloat(document.getElementById("rs").value);
-    const md = parseFloat(document.getElementById("md").value);
-    const ma = parseFloat(document.getElementById("ma").value);
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2bffa3; /* Background color */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center align text */
+}
 
-    try {
-        if (md - pa <= 0) {
-            throw new Error("Division by zero encountered in h_n calculation.");
-        }
-        
-        const h_n = Math.ceil(ph / (md - pa));
-        const cos_theta = (r1**2 + d**2 - r2**2) / (2 * r1 * d);
-        if (cos_theta < -1 || cos_theta > 1) {
-            throw new Error("cos_theta is out of range. Check the input values.");
-        }
-        
-        const theta = 2 * Math.acos(cos_theta) * (Math.PI / 180);
-        const f_1 = h_n * (pd - ma);
-        const term1 = h_n * 0.04 / (theta / rs);
-        const floor_term = Math.floor(term1);
-        
-        const upsilon = rs / (2 * Math.PI - rs / (1 / pr));
-        const denominator = (floor_term * ((2 * Math.PI - theta) / rs)) + (h_n * 0.04) + pr + upsilon;
-        
-        if (denominator <= 0) {
-            throw new Error("Division by zero or negative denominator encountered in delta calculation.");
-        }
-        
-        const delta = f_1 / denominator;
-        
-        // Output the results
-        const resultElement = document.getElementById("result");
-        resultElement.textContent = `Single petal DPS (delta): ${delta.toFixed(2)}
-        \nTheta: ${theta.toFixed(2)}
-        \nTotal Damage (f_1): ${f_1.toFixed(2)}
-        \nTimes it Overrotates: ${floor_term}
-        \nTime to Break (denominator): ${denominator.toFixed(2)}`;
-    } catch (e) {
-        const resultElement = document.getElementById("result");
-        resultElement.textContent = `Error: ${e.message}`;
-    }
-});
+/* Style for the container box */
+.container {
+  background-color: white; /* White background for the container */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding: 20px;
+  margin: 50px auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #007bff; /* Blue text color */
+  margin-top: 0;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+button {
+  background-color: #007bff; /* Blue button color */
+  color: white; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.result-container {
+  background-color: #ff2b75; /* Result box background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 16px;
+  color: white; /* Result text color */
+  font-weight: bold;
+}
