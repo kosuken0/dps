@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'tiles/grass_c_3.svg'
     ];
 
-    const tileSize = 200;
+    const tileSize = 100;
     const cols = Math.ceil(window.innerWidth / tileSize) * 2;
     const rows = Math.ceil(window.innerHeight / tileSize) * 2;
 
