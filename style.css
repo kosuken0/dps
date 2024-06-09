@@ -20,7 +20,7 @@ body {
   text-align: center; /* Center align text */
   color: white; /* Default text color */
   font-weight: bold;
-  overflow: auto; /* Allow scrolling */
+  overflow: auto; /* Allow scrolling, VERY IMPORTANT TO KEEP */
 }
 
 .container {
