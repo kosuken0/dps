@@ -58,9 +58,9 @@ label {
 input, select {
   width: calc(100% - 22px);
   padding: 10px;
-  border: 1px solid #555555;
+  border: 1px solid #cccccc;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 12px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: white; /* Input text color */
