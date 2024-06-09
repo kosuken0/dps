@@ -8,7 +8,7 @@
   z-index: 0;
   background-size: 200px 200px; /* Adjust this based on your tile size */
   background-repeat: repeat;
-  background-image: url(tiles/grass2_c_0.svg), url(tiles/grass2_c_1.svg), url(tiles/grass2_c_2.svg), url(tiles/grass2_c_3.svg); /* Add more URLs if you have more tiles */
+  background-image: url(tiles/grass1.svg), url(tiles/grass2.svg), url(tiles/grass3.svg), url(tiles/grass4.svg);
 }
 
 /* General styles for the page */
@@ -40,6 +40,7 @@ h1 {
   font-size: 24px;
   color: #007bff; /* Blue text color */
   margin-top: 0;
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
 }
 
 .input-container {
@@ -50,6 +51,8 @@ label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: white; /* Label text color */
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
 }
 
 input, select {
@@ -61,7 +64,7 @@ input, select {
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: white; /* Input text color */
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
   background-color: #dddddd; /* Input background color */
 }
 
@@ -80,7 +83,7 @@ button {
   transition: background-color 0.3s;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
 }
 
 button:hover {
@@ -102,7 +105,7 @@ p {
   font-size: 16px;
   color: white; /* Result text color */
   font-weight: bold;
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
 }
 
 /* Additional font import for Ubuntu Bold */
