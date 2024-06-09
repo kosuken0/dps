@@ -1,9 +1,12 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   background-color: #2bffa3; /* Background color */
   margin: 0;
   padding: 0;
   text-align: center; /* Center align text */
+  color: white; /* Default text color */
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
 }
 
 /* Style for the container box */
@@ -40,6 +43,11 @@ input, select {
   border: 1px solid #cccccc;
   border-radius: 5px;
   font-size: 14px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: white; /* Input text color */
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
+  background-color: #a29e9f; /* Input background color */
 }
 
 .button-container {
@@ -48,16 +56,16 @@ input, select {
 
 button {
   background-color: #2bffa3; /* Button center color */
-  color: black; /* Button text color */
-  border: 10px solid #26bf7c; /* Button border color and width */
-  padding: 10px 20px;
+  color: white; /* Button text color */
+  border: 5px solid #26bf7c; /* Button border color and width */
+  padding: 5px 10px;
   font-size: 14px;
   cursor: pointer;
   border-radius: 10px; /* Rounded corners */
   transition: background-color 0.3s;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; /* White text outline */
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
 }
 
 button:hover {
@@ -65,8 +73,9 @@ button:hover {
 }
 
 .result-container {
-  background-color: #ff2b75; /* Result box background color */
-  border-radius: 20px; /* Rounded corners */
+  background-color: #883838; /* Result box background color */
+  border: 10px solid #702f2f; /* Border color and width */
+  border-radius: 10px; /* Rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
   padding: 20px;
   margin-top: 20px;
@@ -76,7 +85,16 @@ p {
   font-size: 16px;
   color: white; /* Result text color */
   font-weight: bold;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
 }
 
 /* Additional font import for Ubuntu Bold */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+/* Apply styles to all text elements */
+body, h1, label, input, select, button, p {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: white; /* Text color */
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
+}
