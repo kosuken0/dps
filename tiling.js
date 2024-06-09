@@ -1,0 +1,31 @@
+// JavaScript to generate the tiled background
+document.addEventListener('DOMContentLoaded', () => {
+    const background = document.createElement('div');
+    background.classList.add('background');
+    document.body.appendChild(background);
+
+    const svgFiles = [
+        'tiles/grass2_c_0.svg',
+        'tiles/grass2_c_1.svg',
+        'tiles/grass2_c_2.svg',
+        'tiles/grass2_c_3.svg'
+    ];
+
+    const tileSize = 100;
+    const cols = Math.ceil(window.innerWidth / tileSize) * 2;
+    const rows = Math.ceil(window.innerHeight / tileSize) * 2;
+
+    for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+            const tile = document.createElement('div');
+            tile.style.width = `${tileSize}px`;
+            tile.style.height = `${tileSize}px`;
+            tile.style.backgroundImage = `url(${svgFiles[Math.floor(Math.random() * svgFiles.length)]})`;
+            tile.style.backgroundSize = 'cover';
+            tile.style.position = 'absolute';
+            tile.style.top = `${y * tileSize}px`;
+            tile.style.left = `${x * tileSize}px`;
+            background.appendChild(tile);
+        }
+    }
+});
