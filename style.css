@@ -6,7 +6,8 @@ body {
   text-align: center; /* Center align text */
   color: white; /* Default text color */
   font-weight: bold;
-  overflow: hidden; /* Prevent scrollbars */
+  /*overflow: hidden;
+  /* Remove this line to enable scrolling
 }
 
 /* Style for the container box */
