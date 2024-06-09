@@ -59,7 +59,7 @@ input, select {
   width: calc(100% - 22px);
   padding: 10px;
   border: 1px solid #cccccc;
-  border-radius: 5px;
+  border-radius: 1px;
   font-size: 12px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
