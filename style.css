@@ -1,3 +1,17 @@
+/* CSS for the background tiling */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-size: 200px 200px; /* Adjust this based on your tile size */
+  background-repeat: repeat;
+  background-image: url(tiles/grass2_c_0.svg), url(tiles/grass2_c_1.svg), url(tiles/grass2_c_2.svg), url(tiles/grass2_c_3.svg); /* Add more URLs if you have more tiles */
+}
+
+/* General styles for the page */
 body {
   font-family: 'Ubuntu', sans-serif;
   background-color: #2bffa3; /* Fallback background color */
@@ -6,11 +20,9 @@ body {
   text-align: center; /* Center align text */
   color: white; /* Default text color */
   font-weight: bold;
-  /*overflow: hidden;
-  /* Remove this line to enable scrolling
+  overflow: auto; /* Allow scrolling */
 }
 
-/* Style for the container box */
 .container {
   background-color: #a29e9f; /* Inside color */
   border: 10px solid #838181; /* Border color and width */
