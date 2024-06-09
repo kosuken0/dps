@@ -2,10 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const background = document.querySelector('.background');
     const svgFiles = [
-        'tiles/grass2_c_0.svg',
-        'tiles/grass2_c_1.svg',
-        'tiles/grass2_c_2.svg',
-        'tiles/grass2_c_3.svg'
+        'tiles/grass_c_0.svg',
+        'tiles/grass_c_1.svg',
+        'tiles/grass_c_2.svg',
+        'tiles/grass_c_3.svg'
     ];
 
     const tileSize = 200;
