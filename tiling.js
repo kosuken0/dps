@@ -1,9 +1,6 @@
 // JavaScript to generate the tiled background
 document.addEventListener('DOMContentLoaded', () => {
-    const background = document.createElement('div');
-    background.classList.add('background');
-    document.body.appendChild(background);
-
+    const background = document.querySelector('.background');
     const svgFiles = [
         'tiles/grass2_c_0.svg',
         'tiles/grass2_c_1.svg',
