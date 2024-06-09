@@ -45,6 +45,8 @@ h1 {
 
 .input-container {
   margin-bottom: 15px;
+  position: relative; /* Added to enable positioning of children */
+  z-index: 2; /* Ensure the input container is above the background */
 }
 
 label {
@@ -66,6 +68,8 @@ input, select {
   color: white; /* Input text color */
   text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
   background-color: #dddddd; /* Input background color */
+  position: relative; /* Added to enable positioning */
+  z-index: 3; /* Ensure inputs are above their containers */
 }
 
 .button-container {
