@@ -49,7 +49,7 @@ input, select {
   font-weight: bold;
   color: white; /* Input text color */
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
-  background-color: #cac6c7; /* Input background color */
+  background-color: #dddddd; /* Input background color */
 }
 
 .button-container {
