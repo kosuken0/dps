@@ -1,3 +1,4 @@
+// JavaScript to generate the tiled background
 document.addEventListener('DOMContentLoaded', () => {
     const background = document.querySelector('.background');
     const svgFiles = [
@@ -24,17 +25,4 @@ document.addEventListener('DOMContentLoaded', () => {
             background.appendChild(tile);
         }
     }
-
-    let offsetX = 0;
-    let offsetY = 0;
-    const speed = 0.1;
-
-    function animateBackground() {
-        offsetX += speed;
-        offsetY += speed;
-        background.style.transform = `translate(${-offsetX}px, ${-offsetY}px)`;
-        requestAnimationFrame(animateBackground);
-    }
-
-    animateBackground();
 });
