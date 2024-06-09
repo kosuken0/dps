@@ -21,7 +21,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         console.log("theta:", theta)
         const eta = Math.ceil(ph / (md - pa));
         console.log("eta:", eta);
-        const tau = Math.max(0, ((2 * Math.PI + theta - (rs / (1 / pr))) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - theta);
+        const tau = Math.max(0, ((2 * Math.PI + theta - (rs / (1 / pr))) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - theta/2);
         console.log("tau:", tau);
         
 
