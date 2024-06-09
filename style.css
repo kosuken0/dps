@@ -41,15 +41,15 @@ label {
 
 input, select {
   width: calc(100% - 22px);
-  padding: 1px;
+  padding: 10px;
   border: 1px solid #cccccc;
-  border-radius: 1px;
+  border-radius: 5px;
   font-size: 14px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: white; /* Input text color */
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; /* Black text outline */
-  background-color: #c2bcbe; /* Input background color */
+  background-color: #cac6c7; /* Input background color */
 }
 
 .button-container {
