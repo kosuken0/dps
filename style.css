@@ -65,8 +65,7 @@ input, select {
   font-size: 12px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-  color: white; /* Input text color */
-  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
+  color: black; /* Input text color */
   background-color: #dddddd; /* Input background color */
   position: relative; /* Added to enable positioning */
   z-index: 3; /* Ensure inputs are above their containers */
