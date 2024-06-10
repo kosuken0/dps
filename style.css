@@ -60,7 +60,7 @@ label {
 input, select {
   width: calc(100% - 22px);
   padding: 10px;
-  border: 1px solid #cccccc;
+  border: none; /* Remove default border */
   border-radius: 5px;
   font-size: 12px;
   font-family: 'Ubuntu', sans-serif;
@@ -69,6 +69,12 @@ input, select {
   background-color: #dddddd; /* Input background color */
   position: relative; /* Added to enable positioning */
   z-index: 3; /* Ensure inputs are above their containers */
+  box-shadow: 0 0 0 2px black; /* Add black outline */
+}
+
+input::placeholder, select::placeholder {
+  text-shadow: none; /* Remove existing text shadow for placeholders */
+  color: rgba(0, 0, 0, 0.7); /* Placeholder text color */
 }
 
 .button-container {
