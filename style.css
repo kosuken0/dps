@@ -20,7 +20,7 @@ body {
   text-align: center; /* Center align text */
   color: white; /* Default text color */
   font-weight: bold;
-  overflow: auto; /* Allow scrolling, VERY IMPORTANT TO KEEP */
+  overflow: auto; /* Allow scrolling */
 }
 
 .container {
@@ -59,17 +59,17 @@ label {
 
 input, select {
   width: calc(100% - 22px);
-  padding: 10px;
+  padding: 15px; /* Increased padding */
   border: 1px solid #cccccc;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 14px; /* Increased font size */
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: white; /* Input text color */
   text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
   background-color: #dddddd; /* Input background color */
   position: relative; /* Added to enable positioning */
-  z-index: 2; /* Ensure inputs are above their containers */
+  z-index: 3; /* Ensure inputs are above their containers */
 }
 
 .button-container {
@@ -80,8 +80,8 @@ button {
   background-color: #2bffa3; /* Button center color */
   color: white; /* Button text color */
   border: 5px solid #26bf7c; /* Button border color and width */
-  padding: 5px 10px;
-  font-size: 14px;
+  padding: 10px 20px; /* Increased padding */
+  font-size: 16px; /* Increased font size */
   cursor: pointer;
   border-radius: 10px; /* Rounded corners */
   transition: background-color 0.3s;
