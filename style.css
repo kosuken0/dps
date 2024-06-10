@@ -70,7 +70,7 @@ input, select {
   background-color: #dddddd; /* Input background color */
   position: relative; /* Added to enable positioning */
   z-index: 3; /* Ensure inputs are above their containers */
-  padding: 12px; /* Increased padding to prevent clipping */
+  padding: 30px; /* Increased padding to prevent clipping */
   box-sizing: border-box; /* Ensure padding and border are included in the width/height */
 }
 
