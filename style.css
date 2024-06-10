@@ -45,8 +45,6 @@ h1 {
 
 .input-container {
   margin-bottom: 15px;
-  position: relative; /* Added to enable positioning of children */
-  z-index: 2; /* Ensure the input container is above the background */
 }
 
 label {
@@ -58,20 +56,32 @@ label {
 }
 
 input, select {
-  width: calc(100% - 22px);
-  padding: 10px;
+  width: calc(100% - 20px); /* Adjust width to include padding and maintain overall size */
+  padding: 10px 10px; /* Add padding to ensure text is 3px away from the border */
   border: 1px solid #cccccc;
   border-radius: 5px;
   font-size: 12px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: white; /* Input text color */
-  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
   background-color: #dddddd; /* Input background color */
   position: relative; /* Added to enable positioning */
   z-index: 3; /* Ensure inputs are above their containers */
-  padding: 30px; /* Increased padding to prevent clipping */
   box-sizing: border-box; /* Ensure padding and border are included in the width/height */
+  text-shadow: none; /* Remove existing text shadow */
+}
+
+input::placeholder, select::placeholder {
+  text-shadow: none; /* Remove existing text shadow for placeholders */
+  color: rgba(255, 255, 255, 0.7); /* Placeholder text color */
+}
+
+input, select {
+  box-shadow: 
+    1px 1px 0 1px black,
+    -1px -1px 0 1px black,
+    1px -1px 0 1px black,
+    -1px 1px 0 1px black; /* Black text outline */
 }
 
 .button-container {
