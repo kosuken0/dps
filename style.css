@@ -62,14 +62,14 @@ input, select {
   padding: 10px;
   border: 1px solid #cccccc;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: white; /* Input text color */
   text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Black text outline */
   background-color: #dddddd; /* Input background color */
   position: relative; /* Added to enable positioning */
-  z-index: 3; /* Ensure inputs are above their containers */
+  z-index: 2; /* Ensure inputs are above their containers */
 }
 
 .button-container {
