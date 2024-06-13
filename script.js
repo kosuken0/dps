@@ -15,53 +15,99 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     const tp = parseFloat(document.getElementById("tp").value) || 0;
     const ld = parseFloat(document.getElementById("ld").value) || 0;
     const caseType = document.getElementById("case").value;
-
+    console.log("version 72.2")
     try {
         let delta_norm, delta_poison, delta_lightn;
 
         if (pa >= md) {
             // Use Infinite Hit Calculator
             const theta = (pd - ma) * 25;
+            console.log("Infinite Hit DPS Calculation:");
+            console.log(`Theta (Infinite Hit): ${theta.toFixed(2)}`);
+            
             const resultElement = document.getElementById("result");
             resultElement.textContent = `Infinite Hit DPS: ${theta.toFixed(2)}`;
             return; // Exit the function early
         }
 
         const theta = 2 * Math.acos((((r1 ** 2 + d ** 2 - r2 ** 2) / (2 * r1 * d))) * (Math.PI / 180));
+        console.log("Normal Calculation:");
+        console.log(`Theta: ${theta.toFixed(2)}`);
+
         const eta = Math.ceil(ph / (md - pa));
+        console.log(`Eta: ${eta}`);
+
         const tau = Math.max(0, ((2 * Math.PI + theta - (rs / (1 / pr))) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - theta / 2);
+        console.log(`Tau: ${tau.toFixed(2)}`);
 
         switch (caseType) {
             case 'normal':
                 {
                     const numr = (pd - ma + bd) * am * eta;
+                    console.log(`Numer: ${numr}`);
+
                     const den1 = (eta * 0.04) / (theta / rs);
+                    console.log(`Denominator 1: ${den1}`);
+
                     const den2 = Math.floor(den1 * ((2 * Math.PI - theta) / rs));
+                    console.log(`Denominator 2: ${den2}`);
+
                     const den3 = den2 + (eta * 0.04);
+                    console.log(`Denominator 3: ${den3}`);
+
                     const den4 = den3 + pr;
+                    console.log(`Denominator 4: ${den4}`);
+
                     const denom = den4 + (tau / rs);
+                    console.log(`Denominator (Final): ${denom}`);
+
                     delta_norm = numr / denom;
+                    console.log(`Delta (Normal): ${delta_norm.toFixed(2)}`);
+
                     break;
                 }
             case 'poison':
                 {
                     const numr = (pd - ma + bd) * am * eta;
+                    console.log(`Numer: ${numr}`);
+
                     const den1 = (eta * 0.04) / (theta / rs);
+                    console.log(`Denominator 1: ${den1}`);
+
                     const den2 = Math.floor(den1 * ((2 * Math.PI - theta) / rs));
+                    console.log(`Denominator 2: ${den2}`);
+
                     const den3 = den2 + (eta * 0.04);
+                    console.log(`Denominator 3: ${den3}`);
+
                     const den4 = den3 + pr;
+                    console.log(`Denominator 4: ${den4}`);
+
                     const denom = den4 + (tau / rs);
+                    console.log(`Denominator (Final): ${denom}`);
+
                     delta_norm = numr / denom;
+                    console.log(`Delta (Normal): ${delta_norm.toFixed(2)}`);
 
                     const pden = (po / tp) + Math.max(0, ((2 * Math.PI - theta) / rs) - rs);
+                    console.log(`Poison Denominator: ${pden}`);
+
                     delta_poison = tp / pden;
+                    console.log(`Delta (Poison): ${delta_poison.toFixed(2)}`);
+
                     break;
                 }
             case 'lightning':
                 {
                     const le1 = (2 * Math.PI - (rs / (1 / pr))) / rs;
+                    console.log(`Lightning Equation 1: ${le1}`);
+
                     const le2 = pr + 0.04 + le1;
+                    console.log(`Lightning Equation 2: ${le2}`);
+
                     delta_lightn = (ld * am) / le2;
+                    console.log(`Delta (Lightning): ${delta_lightn.toFixed(2)}`);
+
                     break;
                 }
             default:
