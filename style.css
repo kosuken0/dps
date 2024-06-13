@@ -9,7 +9,7 @@
   background-size: 200px 200px; /* Adjust this based on your tile size */
   background-repeat: repeat;
   background-image: url(tiles/grass1.svg), url(tiles/grass2.svg), url(tiles/grass3.svg), url(tiles/grass4.svg);
-  animation: moveBackground 6000s linear infinite; /* Apply animation */
+  animation: moveBackground 600000s linear infinite; /* Apply animation */
 }
 
 /* Keyframes for moving the background */
