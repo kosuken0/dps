@@ -24,6 +24,13 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         const tau = Math.max(0, ((2 * Math.PI + theta - (rs / (1 / pr))) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - theta/2);
         console.log("tau:", tau);
         
+        if (pa >= md) {
+            // Use Infinite Hit Calculator
+            const theta = (pd - ma) * 25;
+            const resultElement = document.getElementById("result");
+            resultElement.textContent = `Infinite Hit DPS: ${theta.toFixed(2)}`;
+            return; // Exit the function early
+        }
 
 
         console.log("theta:", theta);
