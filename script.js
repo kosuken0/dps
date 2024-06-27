@@ -1,39 +1,41 @@
 document.getElementById("calculateButton").addEventListener("click", function () {
-    const r1 = parseFloat(document.getElementById("r1").value) || 0;
-    const r2 = parseFloat(document.getElementById("r2").value) || 0;
-    const d = parseFloat(document.getElementById("d").value) || 0;
-    const ph = parseFloat(document.getElementById("ph").value) || 0;
-    const pd = parseFloat(document.getElementById("pd").value) || 0;
-    const pa = parseFloat(document.getElementById("pa").value) || 0;
-    const pr = parseFloat(document.getElementById("pr").value) || 0;
-    const rs = parseFloat(document.getElementById("rs").value) || 0;
-    const md = parseFloat(document.getElementById("md").value) || 0;
-    const ma = parseFloat(document.getElementById("ma").value) || 0;
-    const am = parseFloat(document.getElementById("am").value) || 0;
-    const bd = parseFloat(document.getElementById("bd").value) || 0;
-    const po = parseFloat(document.getElementById("po").value) || 0;
-    const tp = parseFloat(document.getElementById("tp").value) || 0;
-    const ld = parseFloat(document.getElementById("ld").value) || 0;
-    const caseType = document.getElementById("case").value;
-    console.log("version 80 bajillion")
+    const resultElement = document.getElementById("result");
+    
     try {
+        const r1 = parseFloat(document.getElementById("r1").value) || 0;
+        const r2 = parseFloat(document.getElementById("r2").value) || 0;
+        const d = parseFloat(document.getElementById("d").value) || 0;
+        const ph = parseFloat(document.getElementById("ph").value) || 0;
+        const pd = parseFloat(document.getElementById("pd").value) || 0;
+        const pa = parseFloat(document.getElementById("pa").value) || 0;
+        const pr = parseFloat(document.getElementById("pr").value) || 0;
+        const rs = parseFloat(document.getElementById("rs").value) || 0;
+        const md = parseFloat(document.getElementById("md").value) || 0;
+        const ma = parseFloat(document.getElementById("ma").value) || 0;
+        const am = parseFloat(document.getElementById("am").value) || 0;
+        const bd = parseFloat(document.getElementById("bd").value) || 0;
+        const po = parseFloat(document.getElementById("po").value) || 0;
+        const tp = parseFloat(document.getElementById("tp").value) || 0;
+        const ld = parseFloat(document.getElementById("ld").value) || 0;
+        const caseType = document.getElementById("case").value;
+        
+        console.log("version 80 bajillion");
+
         let delta_norm, delta_poison, delta_lightn;
         const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
-                console.log(`Theta: ${theta}`);
+        console.log(`Theta: ${theta}`);
+
         if (pa >= md) {
             // Use Infinite Hit Calculator
             const delta = (((pd - ma + bd) * am) * (Math.ceil((theta / rs) * 25))) / (2 * Math.PI / rs);
             console.log("Infinite Hit DPS Calculation:");
             console.log(`Theta (Infinite Hit): ${theta}`);
             
-            const resultElement = document.getElementById("result");
             resultElement.textContent = `Infinite Hit DPS: ${delta}`;
             return; // Exit the function early
         }
 
-
         console.log("Normal Calculation:");
-
 
         const eta = Math.ceil(ph / (md - pa));
         console.log(`Eta: ${eta}`);
@@ -115,7 +117,6 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                 throw new Error("Invalid case selected.");
         }
 
-        const resultElement = document.getElementById("result");
         switch (caseType) {
             case 'normal':
                 resultElement.textContent = `Single petal DPS (Normal): ${delta_norm.toFixed(2)}`;
@@ -128,11 +129,10 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                 break;
         }
     } catch (e) {
-        const resultElement = document.getElementById("result");
         resultElement.textContent = `Error: ${e.message}`;
     }
 });
 
 
 
-// fuck you
+// fuck you codeminers
