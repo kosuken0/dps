@@ -30,7 +30,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
             return; // Exit the function early
         }
 
-        const theta = 2 * Math.acos((((r1 ** 2 + d ** 2 - r2 ** 2) / (2 * r1 * d))) * (Math.PI / 180));
+        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
         console.log("Normal Calculation:");
         console.log(`Theta: ${theta.toFixed(2)}`);
 
