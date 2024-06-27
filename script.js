@@ -18,7 +18,8 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     console.log("version 72.2")
     try {
         let delta_norm, delta_poison, delta_lightn;
-
+        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
+                console.log(`Theta: ${theta}`);
         if (pa >= md) {
             // Use Infinite Hit Calculator
             const delta = (pd - ma) * 25;
@@ -30,9 +31,9 @@ document.getElementById("calculateButton").addEventListener("click", function ()
             return; // Exit the function early
         }
 
-        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
+
         console.log("Normal Calculation:");
-        console.log(`Theta: ${theta.toFixed(2)}`);
+
 
         const eta = Math.ceil(ph / (md - pa));
         console.log(`Eta: ${eta}`);
