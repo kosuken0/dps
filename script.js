@@ -22,7 +22,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                 console.log(`Theta: ${theta}`);
         if (pa >= md) {
             // Use Infinite Hit Calculator
-            const delta = ((pd - ma + bd) * ((theta/rs)*25)) / ((0.04*eta)+((2pi-theta)*rs));
+            const delta = ((pd - ma + bd) * ((theta / rs) * 25)) / ((0.04 * eta)+((2 * pi - theta) * rs));
             console.log("Infinite Hit DPS Calculation:");
             console.log(`Tau (Infinite Hit): ${tau}`);
             console.log(`Delta (Infinite Hit): ${delta}`);
