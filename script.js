@@ -18,11 +18,11 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     console.log("version 80 bajillion")
     try {
         let delta_norm, delta_poison, delta_lightn;
-        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) ** 2 / (2 * d ** 2 * r1 ** 2));
+        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
                 console.log(`Theta: ${theta}`);
         if (pa >= md) {
             // Use Infinite Hit Calculator
-            const delta = (((pd - ma + bd) * am) * Math.ceil((theta / rs) * 25) / (2pi / rs);
+            const delta = (((pd - ma + bd) * am) * Math.ceil((theta / rs) * 25)) / (2pi / rs);
             console.log("Infinite Hit DPS Calculation:");
             console.log(`Theta (Infinite Hit): ${theta}`);
             
