@@ -15,13 +15,13 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     const tp = parseFloat(document.getElementById("tp").value) || 0;
     const ld = parseFloat(document.getElementById("ld").value) || 0;
     const caseType = document.getElementById("case").value;
-    console.log("version 73")
+    console.log("version 73.1")
     try {
         let delta_norm, delta_poison, delta_lightn;
-        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
-                console.log(`Theta: ${theta}`);
         if (pa >= md) {
             // Use Infinite Hit Calculator
+            const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
+            console.log(`Theta: ${theta}`);
             const delta = (pd - ma) * 25;
             console.log("Infinite Hit DPS Calculation:");
             console.log(`Delta (Infinite Hit): ${theta}`);
@@ -33,7 +33,9 @@ document.getElementById("calculateButton").addEventListener("click", function ()
 
 
         console.log("Normal Calculation:");
-
+        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
+        console.log(`Theta: ${theta}`);
+        
         const eta = Math.ceil(ph / (md - pa));
         console.log(`Eta: ${eta}`);
 
