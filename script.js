@@ -15,19 +15,17 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     const tp = parseFloat(document.getElementById("tp").value) || 0;
     const ld = parseFloat(document.getElementById("ld").value) || 0;
     const caseType = document.getElementById("case").value;
-    console.log("version 80.something")
+    console.log("version 72.2")
     try {
         let delta_norm, delta_poison, delta_lightn;
-        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) ** 2 / (2 * d ** 2 * r1 ** 2));
+        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
                 console.log(`Theta: ${theta}`);
         if (pa >= md) {
             // Use Infinite Hit Calculator
-            const eta = Math.ceil((theta / rs) * 25)
-            const delta = (((pd - ma + bd) * am) * eta / (2pi / rs);
+            const delta = (pd - ma) * 25;
             console.log("Infinite Hit DPS Calculation:");
-            console.log(`Eta (Infinite Hit): ${eta}`);
-            console.log(`Delta (Infinite Hit): ${delta}`);
-
+            console.log(`Delta (Infinite Hit): ${theta}`);
+            
             const resultElement = document.getElementById("result");
             resultElement.textContent = `Infinite Hit DPS: ${delta}`;
             return; // Exit the function early
@@ -41,7 +39,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         console.log(`Eta: ${eta}`);
 
         const tau = Math.max(0, ((2 * Math.PI + theta - (rs / (1 / pr))) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - theta / 2);
-        console.log(`Tau: ${tau}`);
+        console.log(`Tau: ${tau.toFixed(2)}`);
 
         switch (caseType) {
             case 'normal':
@@ -65,7 +63,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                     console.log(`Denominator (Final): ${denom}`);
 
                     delta_norm = numr / denom;
-                    console.log(`Delta (Normal): ${delta_norm}`);
+                    console.log(`Delta (Normal): ${delta_norm.toFixed(2)}`);
 
                     break;
                 }
@@ -90,13 +88,13 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                     console.log(`Denominator (Final): ${denom}`);
 
                     delta_norm = numr / denom;
-                    console.log(`Delta (Normal): ${delta_norm}`);
+                    console.log(`Delta (Normal): ${delta_norm.toFixed(2)}`);
 
                     const pden = (po / tp) + Math.max(0, ((2 * Math.PI - theta) / rs) - rs);
                     console.log(`Poison Denominator: ${pden}`);
 
                     delta_poison = tp / pden;
-                    console.log(`Delta (Poison): ${delta_poison}`);
+                    console.log(`Delta (Poison): ${delta_poison.toFixed(2)}`);
 
                     break;
                 }
@@ -109,7 +107,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                     console.log(`Lightning Equation 2: ${le2}`);
 
                     delta_lightn = (ld * am) / le2;
-                    console.log(`Delta (Lightning): ${delta_lightn}`);
+                    console.log(`Delta (Lightning): ${delta_lightn.toFixed(2)}`);
 
                     break;
                 }
@@ -120,13 +118,13 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         const resultElement = document.getElementById("result");
         switch (caseType) {
             case 'normal':
-                resultElement.textContent = `Single petal DPS (Normal): ${delta_norm}`;
+                resultElement.textContent = `Single petal DPS (Normal): ${delta_norm.toFixed(2)}`;
                 break;
             case 'poison':
-                resultElement.textContent = `Single petal DPS (Normal + Poison): ${(delta_norm + delta_poison)}`;
+                resultElement.textContent = `Single petal DPS (Normal + Poison): ${(delta_norm + delta_poison).toFixed(2)}`;
                 break;
             case 'lightning':
-                resultElement.textContent = `Single petal DPS (Lightning): ${delta_lightn}`;
+                resultElement.textContent = `Single petal DPS (Lightning): ${delta_lightn.toFixed(2)}`;
                 break;
         }
     } catch (e) {
