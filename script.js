@@ -19,7 +19,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         const ld = parseFloat(document.getElementById("ld").value) || 0;
         const caseType = document.getElementById("case").value;
         
-        console.log("version 80 bajillion");
+        console.log("version 82.1");
 
         let delta_norm, delta_poison, delta_lightn;
         const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
