@@ -132,4 +132,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         resultElement.textContent = `Error: ${e.message}`;
     }
 });
+
+
+
 // fuck you
