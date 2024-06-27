@@ -33,8 +33,6 @@ document.getElementById("calculateButton").addEventListener("click", function ()
 
 
         console.log("Normal Calculation:");
-        const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
-        console.log("theta: ${theta}");
 
         const eta = Math.ceil(ph / (md - pa));
         console.log(`Eta: ${eta}`);
