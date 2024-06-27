@@ -15,7 +15,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
     const tp = parseFloat(document.getElementById("tp").value) || 0;
     const ld = parseFloat(document.getElementById("ld").value) || 0;
     const caseType = document.getElementById("case").value;
-    console.log("version 72.2")
+    console.log("version 80.something")
     try {
         let delta_norm, delta_poison, delta_lightn;
         const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) ** 2 / (2 * d ** 2 * r1 ** 2));
@@ -25,7 +25,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
             const eta = Math.ceil((theta / rs) * 25)
             const delta = (((pd - ma + bd)*am) * eta / (2pi/rs);
             console.log("Infinite Hit DPS Calculation:");
-            console.log(`Tau (Infinite Hit): ${tau}`);
+            console.log(`Eta (Infinite Hit): ${eta}`);
             console.log(`Delta (Infinite Hit): ${delta}`);
 
             const resultElement = document.getElementById("result");
