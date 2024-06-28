@@ -135,4 +135,4 @@ document.getElementById("calculateButton").addEventListener("click", function ()
 
 
 
-// fuck you codeminers
+// fuck you ispect element users
