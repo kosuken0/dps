@@ -40,7 +40,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         const eta = Math.ceil(ph / (md - pa));
         console.log(`Eta: ${eta}`);
 
-        const tau = Math.max(0, ((2 * Math.PI + theta - (rs / (1 / pr))) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - theta / 2);
+        const tau = Math.max(0, ((2 * Math.PI + (theta - (rs / (1 / pr)))) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - theta / 2);
         console.log(`Tau: ${tau}`);
 
         switch (caseType) {
