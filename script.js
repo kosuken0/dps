@@ -13,6 +13,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         const md = parseFloat(document.getElementById("md").value) || 0;
         const ma = parseFloat(document.getElementById("ma").value) || 0;
         const am = parseFloat(document.getElementById("am").value) || 0;
+        const hc = parseFloat(document.getElementById("hc").value) || 0;
         const bd = parseFloat(document.getElementById("bd").value) || 0;
         const po = parseFloat(document.getElementById("po").value) || 0;
         const tp = parseFloat(document.getElementById("tp").value) || 0;
@@ -46,7 +47,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         switch (caseType) {
             case 'normal':
                 {
-                    const numr = (pd - ma + bd) * am * eta;
+                    const numr = (pd - ma + bd) * am * eta * (1 / (1 - (hc / 100)));
                     console.log(`Numer: ${numr}`);
 
                     const den1 = (eta * 0.04) / (theta / rs);
