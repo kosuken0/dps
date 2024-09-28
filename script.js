@@ -14,13 +14,14 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         const ma = parseFloat(document.getElementById("ma").value) || 0;
         const am = parseFloat(document.getElementById("am").value) || 0;
         const hc = parseFloat(document.getElementById("hc").value) || 0;
+        const cc = parseFloat(document.getElementById("cc").value) || 0;
         const bd = parseFloat(document.getElementById("bd").value) || 0;
         const po = parseFloat(document.getElementById("po").value) || 0;
         const tp = parseFloat(document.getElementById("tp").value) || 0;
         const ld = parseFloat(document.getElementById("ld").value) || 0;
         const caseType = document.getElementById("case").value;
         
-        console.log("version 82.1");
+        console.log("version 82.0.0");
 
         let delta_norm, delta_poison, delta_lightn;
         const theta = Math.acos(-1 + ((r1 ** 2 - r2 ** 2 + d ** 2) ** 2) / (2 * d ** 2 * r1 ** 2));
@@ -47,7 +48,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         switch (caseType) {
             case 'normal':
                 {
-                    const numr = (pd - ma + bd) * am * eta * (1 / (1 - (hc / 100)));
+                    const numr = ((pd - ma + bd) * (1 - cc) + (pd * 35 - ma + bd) * cc ) * am * eta * (1 / (1 - hc);
                     console.log(`Numer: ${numr}`);
 
                     const den1 = (eta * 0.04) / (theta / rs);
