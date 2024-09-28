@@ -48,7 +48,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         switch (caseType) {
             case 'normal':
                 {
-                    const numr = (((pd - ma + bd) * (1 - cc)) + (((pd * 35) - ma + bd) * cc )) * am * eta * (1 / (1 - hc);
+                    const numr = (((pd - ma + bd) * (1 - cc)) + (((pd * 35) - ma + bd) * cc )) * am * eta * (1 / (1 - hc));
                     console.log(`Numer: ${numr}`);
 
                     const den1 = (eta * 0.04) / (theta / rs);
