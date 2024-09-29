@@ -57,7 +57,7 @@ document.getElementById("calculateButton").addEventListener("click", function ()
                     const den2 = Math.floor(den1 * ((2 * Math.PI - theta) / rs));
                     console.log(`Denominator 2: ${den2}`);
 
-                    const den3 = den2 + (eta * 0.04) + ((1 / (1 - hc) * 0.04);
+                    const den3 = den2 + (eta * 0.04) + (1 / (1 - hc) * 0.04);
                     console.log(`Denominator 3: ${den3}`);
 
                     const den4 = den3 + pr;
